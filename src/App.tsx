@@ -1,101 +1,30 @@
-import {
+import { Routes, Route } from 'react-router-dom'
 
-Routes,
-Route
+import Home from './pages/Home/Home'
+import Product from './pages/Product/Product'
 
-}
+function App() {
 
-from
+  return (
 
-'react-router-dom'
+    <Routes>
 
-
-import Navbar
-
-from
-
-'./components/Navbar/Navbar'
+      <Route
+        path='/'
+        element={<Home />}
+      />
 
 
-import Footer
-
-from
-
-'./components/Footer/Footer'
-
-
-import Home
-
-from
-
-'./pages/Home/Home'
+      <Route
+        path='/product/:id'
+        element={<Product />}
+      />
 
 
-import Product
+    </Routes>
 
-from
-
-'./pages/Product/Product'
-
-
-
-function App(){
-
-
-return(
-
-
-<>
-
-
-<Navbar/>
-
-
-<Routes>
-
-
-<Route
-
-path='/'
-
-element={
-
-<Home/>
+  )
 
 }
-
-/>
-
-
-
-<Route
-
-path='/product/:id'
-
-element={
-
-<Product/>
-
-}
-
-/>
-
-
-
-</Routes>
-
-
-
-<Footer/>
-
-
-</>
-
-
-)
-
-
-}
-
 
 export default App

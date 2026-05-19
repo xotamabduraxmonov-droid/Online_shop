@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Search from '../Search/Search'
 import './navbar.scss'
 
@@ -20,19 +19,14 @@ const Navbar = ({ setSearch }: Props) => {
 
 
       <Search
-        setSearch={setSearch}
+
+        setSearch={
+
+          setSearch
+
+        }
+
       />
-
-
-      <nav>
-
-        <Link to='/'>
-
-          Products
-
-        </Link>
-
-      </nav>
 
 
     </header>

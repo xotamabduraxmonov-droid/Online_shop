@@ -1,0 +1,33 @@
+.navbar{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:95%;
+max-width:1400px;
+padding:20px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+z-index:999;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+}
+
+.navbar nav{
+display:flex;
+gap:24px;
+}
+
+.navbar a{
+font-weight:600;
+}
+
+.navbar .search{
+margin:0;
+max-width:350px;
+}

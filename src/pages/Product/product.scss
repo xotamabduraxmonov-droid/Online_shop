@@ -2,6 +2,23 @@
 padding:140px 40px;
 }
 
+.back-btn{
+margin-bottom:30px;
+padding:14px 24px;
+border:none;
+border-radius:14px;
+background:rgba(255,255,255,.08);
+color:white;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:var(--accent);
+transform:translateY(-2px);
+}
+
 .product{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -69,6 +86,10 @@ grid-template-columns:1fr;
 
 .image-box{
 height:320px;
+}
+
+.info h1{
+font-size:40px;
 }
 
 }

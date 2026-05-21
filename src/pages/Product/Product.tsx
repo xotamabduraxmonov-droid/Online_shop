@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -15,6 +15,9 @@ const Product = () => {
 
   const { id } =
     useParams()
+
+  const navigate =
+    useNavigate()
 
 
   const [
@@ -60,19 +63,11 @@ const Product = () => {
 
           res => {
 
-            console.log(
-
-              res.data.images
-
-            )
-
-
             setProduct(
 
               res.data
 
             )
-
 
             setLoading(
 
@@ -158,9 +153,7 @@ const Product = () => {
 
       product.price *
 
-      product.discountPercentage
-
-      /
+      product.discountPercentage /
 
       100
 
@@ -173,6 +166,24 @@ const Product = () => {
     <section
       className='product-page'
     >
+
+
+      <button
+
+        className='back-btn'
+
+        onClick={() =>
+
+          navigate('/')
+
+        }
+
+      >
+
+        ← Back
+
+      </button>
+
 
 
       <div

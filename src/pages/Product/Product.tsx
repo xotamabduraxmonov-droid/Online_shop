@@ -3,66 +3,111 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+
 import 'swiper/css'
+import 'swiper/css/navigation'
 
 import './product.scss'
 
+
 const Product = () => {
 
-  const { id } = useParams()
-
-  const [product, setProduct] =
-    useState<any>(null)
-
-  const [loading, setLoading] =
-    useState(true)
+  const { id } =
+    useParams()
 
 
-  useEffect(() => {
+  const [
 
-    axios
+    product,
 
-      .get(
+    setProduct
 
-        `https://dummyjson.com/products/${id}`
+  ] =
 
-      )
+    useState<any>(
+      null
+    )
 
-      .then(
 
-        res => {
+  const [
 
-          setProduct(
-            res.data
-          )
+    loading,
 
-          setLoading(
-            false
-          )
+    setLoading
 
-        }
+  ] =
 
-      )
+    useState(
+      true
+    )
 
-      .catch(
 
-        () => {
 
-          setLoading(
-            false
-          )
+  useEffect(
 
-        }
+    () => {
 
-      )
+      axios
 
-  },
+        .get(
 
-  [
+          `https://dummyjson.com/products/${id}`
 
-    id
+        )
 
-  ])
+        .then(
+
+          res => {
+
+            console.log(
+
+              res.data.images
+
+            )
+
+
+            setProduct(
+
+              res.data
+
+            )
+
+
+            setLoading(
+
+              false
+
+            )
+
+          }
+
+        )
+
+        .catch(
+
+          () => {
+
+            setLoading(
+
+              false
+
+            )
+
+          }
+
+        )
+
+    },
+
+    [
+
+      id
+
+    ]
+
+  )
+
 
 
   if (
@@ -71,13 +116,18 @@ const Product = () => {
 
   ) {
 
-    return <h1>
+    return (
 
-      Loading...
+      <h1>
 
-    </h1>
+        Loading...
+
+      </h1>
+
+    )
 
   }
+
 
 
   if (
@@ -86,11 +136,15 @@ const Product = () => {
 
   ) {
 
-    return <h1>
+    return (
 
-      Product not found
+      <h1>
 
-    </h1>
+        Product not found
+
+      </h1>
+
+    )
 
   }
 
@@ -104,7 +158,9 @@ const Product = () => {
 
       product.price *
 
-      product.discountPercentage /
+      product.discountPercentage
+
+      /
 
       100
 
@@ -126,6 +182,20 @@ const Product = () => {
 
 
         <Swiper
+
+          key={
+
+            product.id
+
+          }
+
+          modules={[
+
+            Navigation
+
+          ]}
+
+          navigation
 
           className='product-swiper'
 
@@ -164,7 +234,11 @@ const Product = () => {
 
                       src={img}
 
-                      alt={product.title}
+                      alt={
+
+                        product.title
+
+                      }
 
                     />
 
@@ -331,9 +405,7 @@ const Product = () => {
         </div>
 
 
-
       </div>
-
 
 
     </section>

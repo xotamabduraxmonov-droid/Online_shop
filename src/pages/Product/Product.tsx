@@ -11,40 +11,89 @@ const Product = () => {
 
   const { id } = useParams()
 
-  const [product, setProduct] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
+  const [product, setProduct] =
+    useState<any>(null)
+
+  const [loading, setLoading] =
+    useState(true)
+
 
   useEffect(() => {
 
     axios
-      .get(`https://dummyjson.com/products/${id}`)
-      .then(res => {
 
-        setProduct(res.data)
-        setLoading(false)
+      .get(
 
-      })
-      .catch(() => {
+        `https://dummyjson.com/products/${id}`
 
-        setLoading(false)
+      )
 
-      })
+      .then(
 
-  }, [id])
+        res => {
+
+          setProduct(
+            res.data
+          )
+
+          setLoading(
+            false
+          )
+
+        }
+
+      )
+
+      .catch(
+
+        () => {
+
+          setLoading(
+            false
+          )
+
+        }
+
+      )
+
+  },
+
+  [
+
+    id
+
+  ])
 
 
-  if (loading) {
+  if (
 
-    return <h1>Loading...</h1>
+    loading
+
+  ) {
+
+    return <h1>
+
+      Loading...
+
+    </h1>
 
   }
 
 
-  if (!product) {
+  if (
 
-    return <h1>Product not found</h1>
+    !product
+
+  ) {
+
+    return <h1>
+
+      Product not found
+
+    </h1>
 
   }
+
 
 
   const discount =
@@ -62,33 +111,66 @@ const Product = () => {
     )
 
 
+
   return (
 
-    <section className='product-page'>
+    <section
+      className='product-page'
+    >
 
-      <div className='product glass'>
+
+      <div
+        className='product glass'
+      >
 
 
-        <Swiper>
+
+        <Swiper
+
+          className='product-swiper'
+
+          spaceBetween={20}
+
+          slidesPerView={1}
+
+        >
+
 
           {
 
-            product.images.map(
+            product?.images?.map(
 
               (
 
-                img: string,
+                img:string,
 
-                index: number
+                index:number
 
               ) => (
 
-                <SwiperSlide key={index}>
+                <SwiperSlide
 
-                  <img
-                    src={img}
-                    alt={product.title}
-                  />
+                  key={index}
+
+                >
+
+
+                  <div
+                    className='image-box'
+                  >
+
+
+                    <img
+
+                      src={img}
+
+                      alt={product.title}
+
+                    />
+
+
+                  </div>
+
 
                 </SwiperSlide>
 
@@ -98,25 +180,39 @@ const Product = () => {
 
           }
 
+
         </Swiper>
 
 
 
-        <div className='info'>
+
+        <div
+          className='info'
+        >
 
 
           <h1>
 
-            {product.title}
+            {
+
+              product.title
+
+            }
 
           </h1>
 
 
+
           <p>
 
-            {product.description}
+            {
+
+              product.description
+
+            }
 
           </p>
+
 
 
           <h2>
@@ -125,11 +221,16 @@ const Product = () => {
 
             {
 
-              discount.toFixed(0)
+              discount.toFixed(
+
+                0
+
+              )
 
             }
 
           </h2>
+
 
 
           <p>
@@ -147,6 +248,7 @@ const Product = () => {
           </p>
 
 
+
           <p>
 
             ⭐ Rating:
@@ -158,6 +260,7 @@ const Product = () => {
             }
 
           </p>
+
 
 
           <p>
@@ -173,6 +276,7 @@ const Product = () => {
           </p>
 
 
+
           <p>
 
             🏷 Brand:
@@ -186,6 +290,7 @@ const Product = () => {
           </p>
 
 
+
           <p>
 
             🗂 Category:
@@ -197,6 +302,7 @@ const Product = () => {
             }
 
           </p>
+
 
 
           <p>
@@ -214,6 +320,7 @@ const Product = () => {
           </p>
 
 
+
           <button>
 
             Buy now
@@ -224,7 +331,9 @@ const Product = () => {
         </div>
 
 
+
       </div>
+
 
 
     </section>
